@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="modalgular">
+    <head>
+        <meta charset="utf-8" />
+        <title>AngularJS Modal Example</title>
+        <script>
+            document.write('<base href="' + document.location + '" />');
+        </script>
+        <link rel="stylesheet" href="style.css" />
+
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+        <script src="jquery/jquery-3.3.1.min.js" type="text/javascript"></script>
+
+        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+        <script src="angular/angular.min.js" type="text/javascript"></script>
+        <script src="app.js"></script>
+        <script src="index.js" type="text/javascript"></script>
+        <script src="modal/modal.js" type="text/javascript"></script>
+        <script src="cmodal/cmodal.js" type="text/javascript"></script>
+    </head>
+    <body ng-controller="indexControl">
+        <div class="modal fade" id="add-location-modal" add-modal-var locations="variables"></div>
+        <div class="modal fade" id="cadd-location-modal" cadd-modal-var locations="variables"></div>
+        <div class="container">
+            <div class="py-5 text-center">
+                <h1>Modalgular</h1>
+                <p class="lead">Esta aplicación se usa de ejemplo para mostrar la funcionalidad de una ventana modal con su template y su controlador independientes.</p>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-location-modal">
+                    Añadir variable y valor mediante directiva
+                </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cadd-location-modal">
+                    Añadir variable y valor mediante componente
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-md-8">                   
+                    <h3>Tabla de variables y valores</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="v in variables">
+                                <td>{{v.name}}</td>
+                                <td>{{v.value}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </body>
+</html>
