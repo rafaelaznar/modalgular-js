@@ -3,7 +3,7 @@ moduloDirectivas.directive('addModalVar', [function () {
             restrict: 'A',
             templateUrl: 'modal/modal.html',
             scope: {
-                locations: '=locations'
+                arrayDeVariables: '=arrayDeVariables'
             },
             link: function (scope, element, attrs) {
                 scope.newVariableAndValue = {
@@ -15,7 +15,7 @@ moduloDirectivas.directive('addModalVar', [function () {
                         name: scope.newVariableAndValue.name,
                         value: scope.newVariableAndValue.value
                     }
-                    scope.locations.push(tempVariableAndValue);
+                    scope.arrayDeVariables.push(tempVariableAndValue);
                 };
             }
         };

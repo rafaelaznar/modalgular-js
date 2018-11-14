@@ -2,7 +2,7 @@ moduloDirectivas.component('caddModalVar', {
     //restrict: 'A',
     templateUrl: 'cmodal/cmodal.html',
     bindings: {
-        locations: '='
+        arrayDeVariables: '='
     },
     controllerAs: 'c',
     controller: addModalVarController   
@@ -19,7 +19,7 @@ function addModalVarController($http) {
                 name: self.newVariableAndValue.name,
                 value: self.newVariableAndValue.value
             }
-            self.locations.push(tempVariableAndValue);
+            self.arrayDeVariables.push(tempVariableAndValue);
         };
     }
     
