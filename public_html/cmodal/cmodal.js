@@ -1,16 +1,14 @@
 moduloDirectivas.component('caddModalVar', {
-    restrict: 'A',
-    template: 'cmodal/cmodal.html',
+    //restrict: 'A',
+    templateUrl: 'cmodal/cmodal.html',
     bindings: {
         locations: '='
     },
     controllerAs: 'c',
-    controller: addModalVarController
-   
+    controller: addModalVarController   
 });
 
 function addModalVarController($http) {
-
         var self = this;
         self.newVariableAndValue = {
             name: '',
@@ -24,3 +22,5 @@ function addModalVarController($http) {
             self.locations.push(tempVariableAndValue);
         };
     }
+    
+    
