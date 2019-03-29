@@ -20,6 +20,50 @@
     <body ng-controller="indexControl">
         <div class="modal fade" id="add-location-modal" add-modal-var array-de-variables="variables"></div>
     <cadd-modal-var class="modal fade" id="cadd-location-modal" array-de-variables="variables"></cadd-modal-var>
+
+    <div class="modal fade" id="padd-location-modal" array-de-variables="variables">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Añadir una variable y su valor a la tabla</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Nombre de la variable</label>
+                        <input type="text" class="form-control" ng-model="newVariableAndValue.name" required />
+                        <label>Valor de la variable</label>
+                        <input type="text" class="form-control" ng-model="newVariableAndValue.value" required />
+
+                        <h3>Tabla de variables y valores</h3>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="v in variables">
+                                    <td>{{v.name}}</td>
+                                    <td>{{v.value}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="newVariableAndValue.name = '';newVariableAndValue.value = ''">Reset</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="save()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="py-5 text-center">
             <titulo nombre="'Modalgular'"></titulo>
@@ -27,8 +71,11 @@
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-location-modal">
                 Añadir variable y valor mediante directiva
             </button>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cadd-location-modal">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cadd-location-modal" >
                 Añadir variable y valor mediante componente
+            </button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#padd-location-modal" ng-click="initialize()">
+                Añadir variable y valor mediante modal en la propia página
             </button>
         </div>
         <div class="row">
